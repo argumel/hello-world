@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	 	<link rel="stylesheet" type="text/css" href="../../css/general.css"/>   
+<style type="text/css">
+
+</style>
+</h:head>
+<h:body>
+<h:form id="frmClientes">
+<p:spacer width="5" height="50"/>
+	<p:panel id="pnlclientes" header="Nuevo cliente" styleClass="borderCero3">
+		<p:messages id="mensajes"/>
+		<p:panelGrid style="width:1020px;" >
+		<p:row>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Nombres: * "/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Nombres"  value="#{nuevoClienteBean.givenName}" required="true"/>
+			</p:column>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Apellidos: * "/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Apellidos" value="#{nuevoClienteBean.surnames}" required="true"/>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Telefono: "/>
+			</p:column>
+			<p:column>
+				<p:inputMask value="#{nuevoClienteBean.phone}" mask="(999) 999-9999"/>
+			</p:column>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Correo: * "/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Correo" value="#{nuevoClienteBean.email}" required="true"/>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Direccion: * "/>
+			</p:column>
+			<p:column colspan="3">
+				<p:inputText label="Direccion" value="#{nuevoClienteBean.address}" required="true"/>
+			</p:column>
+
+		</p:row>
+
+		<p:row>
+			<p:column colspan="4" style="text-align:center;">
+				<p:commandButton value="Guardar" action="#{nuevoClienteBean.guardaCliente}" update="pnlclientes"/>
+			</p:column>
+		</p:row>
+		</p:panelGrid>
+		</p:panel>
+</h:form>
+<p:ajaxStatus style="width:16px;height:16px;" id="ajaxStatusPanel">
+    <f:facet name="start">
+        <h:graphicImage value="../images/ajax-loader.gif" />
+    </f:facet>
+     
+    <f:facet name="complete">
+        <h:outputText value="" />
+    </f:facet>
+</p:ajaxStatus>
+</h:body>
+</html>

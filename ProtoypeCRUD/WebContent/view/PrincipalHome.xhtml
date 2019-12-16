@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="../../css/general.css"/> 
+<script type="text/javascript">
+
+	function redirecciona(link){
+			
+			$('#contenPrincipal').attr('src',link);
+		}
+</script>
+<style type="text/css">
+.ui-commandlink{
+	 	text-decoration:none;
+	 	
+	 }
+</style>
+</h:head>
+<h:body style="font-size: 14px">
+<h:form id="frameGral" style="height:100%;">
+<p:layout fullPage="true">
+ 
+    <p:layoutUnit position="north" size="90" header="Bienvenido: #{cuentasBean.userName}" resizable="true">
+       <div style="position: fixed;
+				    right: 40px; ">
+			        		<span >
+			        			<h:commandLink action="#{loginBean.salir}"><img src="../images/logoutChico.png" style="cursor:pointer;"/></h:commandLink> 
+			        			<h:commandLink action="#{loginBean.salir}" style="text-decoration:none;"><span id="sp2" style="cursor:pointer;
+			        																			 color: rgb(102,153,255); 
+																								 font-size: 12px;  
+																								 display: block; 
+																								 font-family: Georgia, 'Times New Roman', Times, serif;">Salir</span></h:commandLink>
+							</span>
+		</div>
+    </p:layoutUnit>
+ 
+ 
+    <p:layoutUnit position="west" size="250" header="Menu" resizable="Menu">
+      
+      	<p:accordionPanel>
+        <p:tab title="Clientes">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage  value="../images/lupa_agregar_24_sf.png" 
+                				 style="cursor:pointer;" 
+                				 onclick="javascript:redirecciona('/ProtoypeCRUD/faces/view/altaClientes.xhtml');"/>
+                				 
+               <p:commandLink value="Alta de clientes" 
+               				  style="cursor:pointer;" 
+               				  onclick="javascript:redirecciona('/ProtoypeCRUD/faces/view/altaClientes.xhtml');"/>
+            </h:panelGrid>
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="../images/clientes_24.jpg" 
+                                 style="cursor:pointer;" 
+                				 onclick="javascript:redirecciona('/ProtoypeCRUD/faces/view/carouselClient.xhtml');"/>
+               <p:commandLink value="Mostrar clientes" 
+               				  style="cursor:pointer;" 
+               				  onclick="javascript:redirecciona('/ProtoypeCRUD/faces/view/carouselClient.xhtml');"/>
+            </h:panelGrid>
+            
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="../images/lupa_busvar_24_sf.png" 
+                                 style="cursor:pointer;" 
+                				 onclick="javascript:redirecciona('/ProtoypeCRUD/faces/view/buscaModificaCliente.xhtml');"/>
+               <p:commandLink value="Busca clientes" 
+               				  style="cursor:pointer;" 
+               				  onclick="javascript:redirecciona('/ProtoypeCRUD/faces/view/buscaModificaCliente.xhtml');"/>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Cuentas">
+        	<h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage  value="../images/identidad_24_sf.png" 
+                				 style="cursor:pointer;" 
+                				 onclick="javascript:redirecciona('/ProtoypeCRUD/faces/view/altaCuentas.xhtml');"/>
+                				 
+                <p:commandLink value="Alta de cuentas"
+                			  style="cursor:pointer;" 
+                			  onclick="javascript:redirecciona('/ProtoypeCRUD/faces/view/altaCuentas.xhtml');" />
+            </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+           
+         
+        <iframe id="contenPrincipal" 
+                src=""
+                width="100%"  
+                height="100%"
+                frameborder="0"/>  
+        
+       
+    </p:layoutUnit>
+ 
+</p:layout>
+ </h:form>
+</h:body>
+</html>

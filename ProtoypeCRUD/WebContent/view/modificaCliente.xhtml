@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<link rel="stylesheet" type="text/css" href="../../css/general.css"/>	 	   
+</h:head>
+<h:body>
+
+<h:form id="frmClient">
+	<p:panel id="pnlBuscaClient" header="Buscar Clientes" styleClass="borderCero3">
+
+	<p:panelGrid style="width:700px;">
+		<p:row>
+			<p:column>
+				<h:outputText value="Num cta :" styleClass="etiqueta2"/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Num Cta" value="#{buscaActualizaCliente.buskNumCta}" />
+			</p:column>
+			<p:column>
+				<h:outputText value="Nombre :" styleClass="etiqueta2"/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Nombre" value="#{buscaActualizaCliente.buskNombre}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column colspan="4" style="text-align:center;">
+				<p:commandButton value="Buscar" actionListener="#{buscaActualizaCliente.buscaCliente}" update="@all"/>
+			</p:column>
+		</p:row>
+	</p:panelGrid>
+</p:panel>
+</h:form>
+</h:body>
+</html>

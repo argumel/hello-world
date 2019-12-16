@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	 	<link rel="stylesheet" type="text/css" href="../../css/general.css"/>  
+	 	  <script type="text/javascript">
+				function entra(){
+						alert(1);
+
+						}
+	 	  </script>
+</h:head>
+<h:body>
+<h:form id="form">
+   <p:growl id="msgs" showDetail="true" />
+ 		
+
+
+<p:dataTable id="eventsDT" var="cli" value="#{buscaActualizaCliente.listClient}" selectionMode="single" selection="#{buscaActualizaCliente.selectedClient}" rowKey="#{cli.no_Cuenta}">
+        <f:facet name="header">
+            Busqueda de Clientes
+        </f:facet>
+		<p:ajax event="rowSelect" listener="#{buscaActualizaCliente.onRowSelect}"     update=":form:pnlclientes" />
+        <p:ajax event="rowUnselect" listener="#{buscaActualizaCliente.onRowUnselect}" update=":form:msgs" />
+  <p:columns value="#{buscaActualizaCliente.columns}" var="column" columnIndexVar="colIndex" sortBy="#{cli[column.property]}" filterBy="#{cli[column.property]}">
+            <f:facet name="header">
+                <h:outputText value="#{column.header}" />
+            </f:facet>
+            <h:outputText value="#{cli[column.property]}" />
+  </p:columns>
+</p:dataTable>
+<p:spacer height="30" width="10"></p:spacer>
+<p:panel id="pnlclientes" header="Modificacion del cliente" styleClass="borderCero3">
+		<p:messages id="mensajes"/>
+		<p:panelGrid style="width:1020px;" >
+		<p:row>
+			<p:column>
+				<h:inputHidden value="#{buscaActualizaCliente.accountNumber}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Nombres: * "/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Nombres"  value="#{buscaActualizaCliente.givenName}" required="true"/>
+			</p:column>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Apellidos: * "/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Apellidos" value="#{buscaActualizaCliente.surnames}" required="true"/>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Telefono: "/>
+			</p:column>
+			<p:column>
+				<p:inputMask value="#{buscaActualizaCliente.phone}" mask="(999) 999-9999"/>
+			</p:column>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Correo: * "/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Correo" value="#{buscaActualizaCliente.email}" required="true"/>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Direccion: * "/>
+			</p:column>
+			<p:column>
+				<p:inputText label="Direccion" value="#{buscaActualizaCliente.address}" required="true"/>
+			</p:column>
+			<p:column>
+				<h:outputText styleClass="etiqueta2" value="Fecha de alta "/>
+			</p:column>
+			<p:column>
+				<p:calendar id="date" value="#{buscaActualizaCliente.creationDate}" pattern="yyyy/MM/dd" />
+			</p:column>
+
+		</p:row>
+
+		<p:row>
+			<p:column colspan="4" style="text-align:center;">
+				<p:commandButton value="Guardar" action="#{buscaActualizaCliente.atualizaCliente}" update="@all"/>
+				
+			</p:column>
+		</p:row>
+		</p:panelGrid>
+		</p:panel>
+
+</h:form>
+<h:form>
+	<p:panel id="pnlSubeFoto" header="Subir imagen del cliente" styleClass="borderCero3">
+
+			<h:panelGroup id="fileUploadGroup">
+				<p:fileUpload fileUploadListener="#{buscaActualizaCliente.handleFileUpload}"
+							  mode="advanced" dragDropSupport="false"
+           					  update="pnlSubeFoto"
+           					  sizeLimit="1000000" 
+           					  fileLimit="1" 
+           					  invalidSizeMessage="El tamaño de la imagen sobrepasa el limite"
+           					  invalidFileMessage="El formato debe ser jpg,gif o png"
+           					  fileLimitMessage="Solo puedes agregar una imagen"
+           					  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+ 
+    			
+		<p:growl id="msgPhoto" showDetail="true" />        	
+		</h:panelGroup>
+	</p:panel>
+
+</h:form>
+
+</h:body>
+
+</html>

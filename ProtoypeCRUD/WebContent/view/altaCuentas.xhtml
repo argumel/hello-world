@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<link rel="stylesheet" type="text/css" href="../../css/general.css"/>
+</h:head>
+<h:body>
+<h:form>
+<p:spacer width="5" height="50"/>
+	<p:panel id="pnlCuentas" header="Alta cuenta" styleClass="borderCero3">
+		<p:messages id="mensajes" showDetail="false"/>
+		<p:panelGrid style="width:1020px;" >
+			<p:row>
+				<p:column>
+				 	<h:outputText styleClass="etiqueta2" value="Nombre de usuario: * "/>
+				</p:column>
+				<p:column>
+					<p:inputText label="Nombre de usuario"  value="#{cuentasBean.userName}" required="true"/>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column>
+				 	<h:outputText styleClass="etiqueta2" value="Password: * "/>
+				</p:column>
+				<p:column>
+					<p:password id="pwd1" label="Las contraseñas deben coincidir" 
+							    feedback="true"  
+							    value="#{cuentasBean.password}" 
+							    required="true"
+							    match="pwd2"/>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column>
+				 	<h:outputText styleClass="etiqueta2" value="Confirmar Password: * "/>
+				</p:column>
+				<p:column>
+					<p:password id="pwd2" label="password2" inline="true"  value="#{cuentasBean.password}" required="true"/>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="2" style="text-align:center;">
+					<p:commandButton action="#{cuentasBean.guardaContrasena}" value="Guardar" update="pnlCuentas"/>
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+	</p:panel>
+	</h:form>
+</h:body>
+</html>

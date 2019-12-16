@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	 	 <link rel="stylesheet" type="text/css" href="../../css/general.css"/> 
+<style type="text/css">
+.textoMediano{
+	 font-size: 16px;  
+	 display: block;
+	 font:normal bold 110% normal;
+	 font-family: Georgia, Times New Roman, Times, serif;
+}
+.textoMediano1{
+	 font-size: 16px;  
+	 display: block;
+	 font-family: Georgia, Times New Roman, Times, serif;
+}
+.ui-carousel .ui-widget-content{
+			width: 400px;
+}
+</style>	 	      
+</h:head>
+<h:body>
+<h:form id="frmClient">
+<p:spacer width="5" height="50"/>
+<div id="content" style="text-align: center;">
+<p:carousel value="#{carouselClient.listClient}" style="width:100%"  headerText="Clientes" var="cli"  numVisible="1" >
+        <p:panelGrid columns="2" style="width:100%" columnClasses="label,value">
+            <f:facet name="header">
+                <h:graphicImage value="/DisplayImage?accountNumber=#{cli.accountNumber}" width="90" height="90"></h:graphicImage>
+            </f:facet>
+ 
+            <h:outputText value="Numero de cuenta:" styleClass="textoMediano"/>
+            <h:outputText value="#{cli.accountNumber}" style="color:blue" styleClass="textoMediano1"/>
+            
+ 
+            <h:outputText value="Nombres" styleClass="textoMediano"/>
+            <h:outputText value="#{cli.givenName}" styleClass="textoMediano1"/>
+ 
+            <h:outputText value="Apellidos:" styleClass="textoMediano"/>
+            <h:outputText value="#{cli.surnames}" styleClass="textoMediano1"/>
+ 
+             <f:facet name="footer">
+                <p:commandButton update=":frmClient:clientDetail" oncomplete="PF('clientDialog').show()" icon="ui-icon-search">
+                    <f:setPropertyActionListener value="#{cli}" target="#{carouselClient.selectedClient}" />
+                </p:commandButton>
+            </f:facet>
+             
+        </p:panelGrid>
+    </p:carousel> 
+</div>    
+	   <p:dialog header="Cliente Info" widgetVar="clientDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="clientDetail" style="text-align:center;">
+            <p:panelGrid  columns="2" rendered="#{not empty carouselClient.selectedClient}" columnClasses="label,value">
+                <f:facet name="header">
+                    <h:graphicImage value="/DisplayImage?accountNumber=#{carouselClient.selectedClient.accountNumber}" width="50" height="50"></h:graphicImage>
+                </f:facet>
+ 
+                <h:outputText value="Numero de cuenta:" style="font:normal bold 110% normal;"/>
+                <h:outputText value="#{carouselClient.selectedClient.accountNumber}" style="color:blue"/>
+ 
+                <h:outputText value="Nombre:" style="font:normal bold 110% normal;"/>
+                <h:outputText value="#{carouselClient.selectedClient.givenName}"/>
+                
+                <h:outputText value="Apellidos:" style="font:normal bold 110% normal;"/>
+                <h:outputText value="#{carouselClient.selectedClient.surnames}"/>
+                
+                <h:outputText value="Telefono:" style="font:normal bold 110% normal;"/>
+                <h:outputText value="#{carouselClient.selectedClient.phone}" />
+                
+                <h:outputText value="E-mail:" style="font:normal bold 110% normal;"/>
+                <h:outputText value="#{carouselClient.selectedClient.email}" />
+                
+                <h:outputText value="Direccion:" style="font:normal bold 110% normal;"/>
+                <h:outputText value="#{carouselClient.selectedClient.address}" />
+                
+                <h:outputText value="Fecha de alta:" style="font:normal bold 110% normal;"/>
+                <h:outputText value="#{carouselClient.selectedClient.creationDate}"/>
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+</h:form>
+</h:body>
+</html>
