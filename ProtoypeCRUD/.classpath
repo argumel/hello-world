@@ -15,18 +15,5 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/activation-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/adal4j-1.6.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/commons-codec-1.10.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/commons-collections4-4.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/commons-lang3-3.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/gson-2.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/jcip-annotations-1.0-1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/json-smart-1.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/lang-tag-1.4.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/mail-1.4.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/nimbus-jose-jwt-8.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/oauth2-oidc-sdk-5.24.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/argumel/Documents/AzureAD Java Web/slf4j-api-1.7.21.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
