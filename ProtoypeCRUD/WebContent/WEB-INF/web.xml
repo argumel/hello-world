@@ -48,23 +48,32 @@
 </context-param>
 <context-param>
 	<param-name>tenant</param-name>
-	<param-value>ProtoypeCRUD</param-value>
+	<param-value>ivancastanedakazcom.onmicrosoft.com</param-value>
 </context-param>
 
 <filter>
-	<filter-name>AdalFilter</filter-name>
-	<filter-class>com.azilen.aad.AdalFilter</filter-class>
-	<init-param>
-		<param-name>client_id</param-name>
-		<param-value>https://startonline.com.mx:8543/ProtoypeCRUD/faces/login.xhtml</param-value>
-	</init-param>
-	<init-param>
-		<param-name>secret_key</param-name>
-		<param-value>https://startonline.com.mx:8543/ProtoypeCRUD/faces/login.xhtml</param-value>
-	</init-param>
-</filter>
-<filter-mapping>
-	<filter-name> AdalFilter </filter-name>
-	<url-pattern>/secure/*</url-pattern>
-</filter-mapping>
+		<filter-name>BasicFilter</filter-name>
+		<filter-class>mx.prototype.adaj4jAzure.BasicFilter</filter-class>
+		<init-param>
+			<param-name>client_id</param-name>
+			<param-value>12bbd072-3828-4298-902d-bd668e6d342e</param-value>
+		</init-param>
+		<init-param>
+			<param-name>secret_key</param-name>
+			<param-value>/Mlfv031spEZ5wUjD?wL@/[fvlcFtqG5</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>BasicFilter</filter-name>
+		<url-pattern>/secure/*</url-pattern>
+	</filter-mapping>
+
+<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>	
 </web-app>
