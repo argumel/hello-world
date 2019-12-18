@@ -2,7 +2,7 @@
 <body>
 	<h3>Home Page</h3>
 
-	<form action="secure/aad">
+	<form action="faces/secure/aad.xhtml">
 		<input type="submit" value="Show users in the tenant">
 	</form>
 

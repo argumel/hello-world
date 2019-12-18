@@ -40,10 +40,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.microsoft.aad.adal4j.AuthenticationResult;
 
 @Controller
-@RequestMapping("/secure/aad")
+@RequestMapping("/secure/*")
 public class AadController {
+		
+	public AadController() {
+		System.out.println("");
+	}
 
     @RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
+	//@RequestMapping(value={"","/faces/*", "/faces/secure/*", "/faces/*","/secure/aad,/*"})
     public String getDirectoryObjects(ModelMap model, HttpServletRequest httpRequest) {
         HttpSession session = httpRequest.getSession();
         AuthenticationResult result = (AuthenticationResult) session.getAttribute(AuthHelper.PRINCIPAL_SESSION_NAME);
@@ -63,7 +68,7 @@ public class AadController {
                 return "/error";
             }
         }
-        return "/secure/aad";
+        return "/secure/aad.xhtml";
     }
 
     private String getUsernamesFromGraph(String accessToken, String tenant) throws Exception {

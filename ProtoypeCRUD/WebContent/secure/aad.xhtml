@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+ 
+
+</h:head>
+<h:body>
+<h3>List of users registered in the tenant - #{tenant}</h3>
+	<p>#{users}</p>
+	<br/>
+	<h3>Current user</h3>
+	<table>
+		<tr>
+			<td>uniqueId:</td>
+			<td>#{userInfo.uniqueId}</td>
+		</tr>
+		<tr>
+			<td>displayableId:</td>
+			<td>#{userInfo.displayableId}</td>
+		</tr>
+		<tr>
+			<td>givenName:</td>
+			<td>#{userInfo.givenName}</td>
+		</tr>
+		<tr>
+			<td>familyName:</td>
+			<td>#{userInfo.familyName}</td>
+		</tr>
+		<tr>
+			<td>identityProvider:</td>
+			<td>#{userInfo.identityProvider}</td>
+		</tr>
+	</table>
+	<br/>
+	<form action="/ProtoypeCRUD">
+		<input type="submit" value="Home Page"/>
+	</form>
+</h:body>
+</html>
