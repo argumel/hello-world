@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.microsoft.aad.adal4j.AuthenticationResult;
 
 @Controller
-@RequestMapping("/secure/*")
+@RequestMapping("/faces/secure/*")
 public class AadController {
 		
 	public AadController() {
